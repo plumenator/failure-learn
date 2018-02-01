@@ -1,0 +1,12 @@
+[package]
+name = "failure-learn"
+version = "0.1.0"
+authors = ["Karthik Ravikanti <karthik.ravikanti@gmail.com>"]
+
+[dependencies]
+failure = "*"
+failure_derive = "*"
+matches = "*"
+serde = "*"
+serde_derive = "*"
+toml = "*"
