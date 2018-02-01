@@ -66,7 +66,7 @@ pub fn read_toolchains(path: PathBuf) -> Result<Toolchains, Error>
 }
 
 fn main() {
-    println!("Hello, world!");
+    println!("Backtrace {:?}", read_toolchains(PathBuf::from("Cargo.toml")).err().unwrap().backtrace());
 }
 
 #[test]
