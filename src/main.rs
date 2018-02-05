@@ -11,6 +11,7 @@ use std::path::PathBuf;
 use std::str::FromStr;
 
 use failure::Error;
+use failure::ResultExt;
 
 // This is a new error type that you've created. It represents the ways a
 // toolchain could be invalid.
@@ -67,6 +68,8 @@ pub fn read_toolchains(path: PathBuf) -> Result<Toolchains, Error>
 
 fn main() {
     println!("Backtrace {:?}", read_toolchains(PathBuf::from("Cargo.toml")).err().unwrap().backtrace());
+    println!("Result Context {:?}", read_toolchains(PathBuf::from("Cargo.toml")).context("Reading toolchains").err().unwrap());
+    println!("Falure context {:?}", read_toolchains(PathBuf::from("Cargo.toml")).err().unwrap().context("Reading toolchains"));
 }
 
 #[test]
