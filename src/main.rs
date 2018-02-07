@@ -78,7 +78,7 @@ fn invalid_path()
     let result = read_toolchains(PathBuf::from("/this/path/is/invalid"));
     assert!(matches!(result, Err(_)));
     use std::io;
-    assert!(result.err().unwrap().cause().downcast_ref::<io::Error>().is_some());
+    assert!(result.err().unwrap().downcast::<io::Error>().is_ok());
 }
 
 #[test]
